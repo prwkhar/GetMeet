@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback , useEffect} from 'react'
 import { useState } from 'react'
 import { useSocket } from '../context/SocketProvider';
 
@@ -7,6 +7,23 @@ function Lobby() {
     email:"",
     roomno: "",
   })
+
+  const handlejoin = useCallback(
+    (data) => {
+      const {email,roomno}=data;
+      console.log(email,roomno); 
+    },
+    [second],
+  )
+  
+
+  useEffect(()=>{
+    socket.on('room:join',handlejoin);
+    return() =>{
+      socket.off('room:join',handlejoin);
+    }
+  })
+  
 
   const changehandler=(e)=>{
     setformdata({

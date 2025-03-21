@@ -7,9 +7,9 @@ import SocketProvider from './context/SocketProvider.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-    <SocketProvider/>
+    <SocketProvider>
       <App />
-      <SocketProvider/>
+      </SocketProvider>
     </BrowserRouter>
   </StrictMode>,
 )

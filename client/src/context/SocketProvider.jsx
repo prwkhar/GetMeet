@@ -8,11 +8,11 @@ export const useSocket = () =>{
     return socket; 
 };
 
-function SocketProvider({props}) {
-    const socket = useMemo(()=>io("localhost:8000"),[]);
+function SocketProvider(props) {
+    const socket = useMemo(()=>io("http://localhost:8000"),[]);
   return (
     <socketcontext.Provider value={socket}>
-        {props}
+        {props.children}
     </socketcontext.Provider>
   )
 }

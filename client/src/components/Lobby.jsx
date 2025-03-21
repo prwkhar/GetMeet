@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
 import { useState } from 'react'
+import { useSocket } from '../context/SocketProvider';
 
 function Lobby() {
   const [formdata,setformdata]=useState({
@@ -13,12 +14,12 @@ function Lobby() {
       [e.target.id]: e.target.value,
     })
   };
+  const socket = useSocket();
 
   const handlesubmit = useCallback((e)=>{
     e.preventDefault();
-    console.log(formdata.email);
-    console.log(formdata.roomno);
-  },[formdata ])
+    socket.emit("room:join",formdata);
+  },[formdata,socket])
 
   return (
     <div>

@@ -18,7 +18,7 @@ function Lobby() {
     e.preventDefault();
     console.log(formdata.email);
     console.log(formdata.roomno);
-  },[formdata])
+  },[formdata ])
 
   return (
     <div>

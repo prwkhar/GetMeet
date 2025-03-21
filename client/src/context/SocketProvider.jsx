@@ -12,7 +12,7 @@ function SocketProvider({props}) {
     const socket = useMemo(()=>io("localhost:8000"),[]);
   return (
     <socketcontext.Provider value={socket}>
-        {props.children}
+        {props}
     </socketcontext.Provider>
   )
 }

@@ -5,11 +5,10 @@ import App from './App.jsx'
 import SocketProvider from './context/SocketProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  
     <BrowserRouter>
     <SocketProvider>
       <App />
       </SocketProvider>
     </BrowserRouter>
-  </StrictMode>,
 )
